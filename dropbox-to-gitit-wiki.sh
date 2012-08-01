@@ -1,14 +1,15 @@
 #!/bin/sh
 
-GITIT_PATH="/home/gitit"
-DOCS_FOLDER="Docs"
-WIKI="178"
+# usage: autogit "/path/to/git/repository/"
 
-DROPBOX_WIKI_PATH="/home/eins78/Dropbox/TEXT/txt.178.is"
+GIT_PATH="$1"
 
 # To set up set the above vars and:
 # $ mkdir ~/Dropbox/"$WIKI"
 # $ git clone "$GITIT_PATH"/"$WIKI"/"$DOCS_FOLDER" ~/Dropbox/"$WIKI"
+
+# test
+echo"$GIT_PATH"
 
 cd "$DROPBOX_WIKI_PATH"
 git add --all
