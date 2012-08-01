@@ -12,6 +12,7 @@ I use it to edit text files in my [Gitit Wiki Server](http://gitit.net) from my 
 ## Installation
 
 I like to do   
+
     $ git clone https://github.com/eins78/autogit.git ~/Scripts/autogit
     $ sudo ln -s ~/Scripts/autogit/autogit.sh /usr/local/bin/autogit
     
