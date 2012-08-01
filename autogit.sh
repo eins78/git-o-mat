@@ -9,9 +9,9 @@ GIT_PATH="$1"
 # $ git clone "$GITIT_PATH"/"$WIKI"/"$DOCS_FOLDER" ~/Dropbox/"$WIKI"
 
 # test
-echo"$GIT_PATH"
+echo "$GIT_PATH"
 
-cd "$DROPBOX_WIKI_PATH"
+cd "$GIT_PATH"
 git add --all
 
 # only commit if neccessary (dirty check)
