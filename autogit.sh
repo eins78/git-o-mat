@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # usage: autogit "/path/to/git/repository/"
 
