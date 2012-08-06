@@ -11,11 +11,19 @@ I use it to edit text files in my [Gitit Wiki Server](http://gitit.net) from my 
 
 ## Installation
 
-I like to do   
+I like to do:
 
-    $ git clone https://github.com/eins78/autogit.git ~/Scripts/autogit
-    $ sudo ln -s ~/Scripts/autogit/autogit.sh /usr/local/bin/autogit
+    git clone https://github.com/eins78/autogit.git ~/Scripts/autogit
+    sudo ln -s ~/Scripts/autogit/autogit.sh /usr/local/bin/autogit
+    
+The run the script from cron every minute. It will commit only what you actually save with your text editor, so it won't be really 1 commit per minute. But the short intervall makes it more likely to catch renamed files, which happens automatically with git if the content is not also modified since the last commit.
 
+To make it work with a [GitIt Wiki] in a Dropbox folder (on a remote server) I did:
+
+    mkdir ~/Dropbox/"$WIKI"
+    git clone "$GITIT_PATH"/"$WIKI"/"$DOCS_FOLDER" ~/Dropbox/"$WIKI"
+
+But since the script just does "`git push`" it should work with whatever default remote you defined. (So by not setting a default remote you can disable pushing per repository.
 
 ## TODO
 
