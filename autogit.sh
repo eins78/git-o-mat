@@ -25,7 +25,7 @@ cd "$GIT_PATH"
 git add --all
 
 # only commit if neccessary (dirty check) -- exit if not so no push
-git status | grep "nothing to commit (working directory clean)" && exit 0 || git commit -F "$MESSAGE_TMP"
+git status | grep "nothing to commit (working directory clean)" >/dev/null && exit 0 || git commit -F "$MESSAGE_TMP" >/dev/null 
 
 # push it to local or remote gitit wiki server
-git push
+git push >/dev/null 
