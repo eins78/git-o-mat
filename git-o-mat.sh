@@ -4,8 +4,7 @@
 
 GIT_PATH="$1"
 
-cd "$GIT_PATH"
-git add --all
+cd "$GIT_PATH" && git pull && git add --all
 
 # generate the message
 
