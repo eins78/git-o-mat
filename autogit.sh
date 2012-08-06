@@ -4,12 +4,8 @@
 
 GIT_PATH="$1"
 
-# To set up set the above vars and:
-# $ mkdir ~/Dropbox/"$WIKI"
-# $ git clone "$GITIT_PATH"/"$WIKI"/"$DOCS_FOLDER" ~/Dropbox/"$WIKI"
-
-# test
-echo "$GIT_PATH"
+cd "$GIT_PATH"
+git add --all
 
 # generate the message
 
@@ -21,11 +17,8 @@ echo -e "autocommit at $(date -u '+%FT%T+00:00') (UTC) by $USER on $HOSTNAME \n\
 #### on OS X, ask iTunes for the current playing track
 osascript -e 'tell application "System Events" to if ((name of processes) contains "iTunes") then do shell script ("osascript -e " & quoted form of ("tell application \"iTunes\" to if player state is playing then \"iTunes is playing: \" & name of current track & \" - \" & artist of current track" & ""))'  >> $MESSAGE_TMP
 
-cd "$GIT_PATH"
-git add --all
-
 # only commit if neccessary (dirty check) -- exit if not so no push
 git status | grep "nothing to commit (working directory clean)" >/dev/null && exit 0 || git commit -F "$MESSAGE_TMP" >/dev/null 
 
-# push it to local or remote gitit wiki server
+# push it to default git repo origin (local or remote)
 git push >/dev/null 
