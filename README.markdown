@@ -1,4 +1,4 @@
-# autogit
+# git-o-mat
 
     A *very* simple shell script for automated git 'commit and push', which can be run from cron.
     
@@ -13,10 +13,18 @@ I use it to edit text files in my [Gitit Wiki Server](http://gitit.net) from my 
 
 I like to do:
 
-    git clone https://github.com/eins78/autogit.git ~/Scripts/autogit
-    sudo ln -s ~/Scripts/autogit/autogit.sh /usr/local/bin/autogit
+    git clone https://github.com/eins78/git-o-mat.git ~/.scripts/git-o-mat
+    sudo ln -s ~/.scripts/git-o-mat/git-o-mat.sh /usr/local/bin/git-o-mat
     
-The run the script from cron every minute. It will commit only what you actually save with your text editor, so it won't be really 1 commit per minute. But the short intervall makes it more likely to catch renamed files, which happens automatically with git if the content is not also modified since the last commit.
+Then run the script from cron every minute. 
+
+    crontab -e
+
+    */1 * * * * /usr/local/bin/git-o-mat "/path/to/git/repo"
+
+On OS X, you can edit the file `is.178.git-o-mat.plist` and the copy it to `~/Libray/LaunchAgents/`.
+
+It will commit only what you actually save with your text editor, so it won't be really 1 commit per minute. But the short intervall makes it more likely to catch renamed files, which happens automatically with git if the content is not also modified since the last commit.
 
 To make it work with a [GitIt Wiki] in a Dropbox folder (on a remote server) I did:
 
