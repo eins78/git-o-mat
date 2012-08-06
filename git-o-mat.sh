@@ -6,7 +6,7 @@ GIT_PATH="$1"
 
 cd "$GIT_PATH" && git pull && git add --all || exit 1
 # only work if neccessary (dirty check)
-git status | grep "nothing to commit (working directory clean)" >/dev/null && exit 0
+git status | grep "nothing to commit (working directory clean)" && exit 0
 
 # generate the message
 
@@ -19,6 +19,6 @@ echo "autocommit at $(date -u '+%FT%T+00:00') (UTC) by $USER on $HOSTNAME \n\n" 
 #### on OS X, ask iTunes for the current playing track
 osascript -e 'tell application "System Events" to if ((name of processes) contains "iTunes") then do shell script ("osascript -e " & quoted form of ("tell application \"iTunes\" to if player state is playing then \"iTunes is playing: \" & name of current track & \" - \" & artist of current track" & ""))'  >> $MESSAGE_TMP
 
-git commit -F "$MESSAGE_TMP" >/dev/null ## commit with $MESSAGE
+git commit -F "$MESSAGE_TMP" ## commit with $MESSAGE
 
-git push >/dev/null ## push it to default git repo origin (local or remote)
+git push ## push it to default git repo origin (local or remote)
