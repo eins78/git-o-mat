@@ -37,3 +37,7 @@ But since the script just does "`git push`" it should work with whatever default
 
 - fail/show help on empty argument
 - accept a list and do it ``for`` all paths
+
+## License
+
+This software is free and open source, licensed under [The MIT License (MIT)](http://opensource.org/licenses/MIT)
