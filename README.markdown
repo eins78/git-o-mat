@@ -26,7 +26,7 @@ On OS X, you can edit the file `is.178.git-o-mat.plist`, copy it to `~/Libray/La
 
 It will commit only what you actually save with your text editor, so it won't be really 1 commit per minute. But the short intervall makes it more likely to catch renamed files, which happens automatically with git if the content is not also modified since the last commit.
 
-To make it work with a GitIt Wiki]in a Dropbox folder (on a remote server) I did:
+To make it work with a [GitIt Wiki](http://gitit.net) in a Dropbox folder (on a remote server) I did:
 
     mkdir ~/Dropbox/"$WIKI"
     git clone "$GITIT_PATH"/"$WIKI"/"$DOCS_FOLDER" ~/Dropbox/"$WIKI"
