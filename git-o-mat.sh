@@ -4,7 +4,7 @@
 
 GIT_PATH="$1"
 
-cd "$GIT_PATH" && git pull && git add --all || exit 1
+cd "$GIT_PATH" && git fetch --all && git pull && git add --all || exit 1
 # only work if neccessary (dirty check)
 git status | grep "nothing to commit (working directory clean)" && exit 0
 
