@@ -13,12 +13,18 @@ git status | grep "nothing to commit (working directory clean)" && exit 0
 
 MESSAGE_TMP="/tmp/autogit_$(date +"%s")"
 touch $MESSAGE_TMP
-### generate main commit message (followed by 2 linebreaks)
-echo "autocommit at $(date -u '+%FT%T+00:00') (UTC) by $USER on $HOSTNAME \n\n" >> $MESSAGE_TMP # fake RFC3339 date format as per <stackoverflow.com/questions/11481115/bash-date-format-as-html5-datetime>
 
-### generate more messages if there is a script for it in the repo
+### check if local message generator exists in repo
+[[ -f "scripts/commit-message.sh" ]] && { # IF IT EXISTS 
 
-[[ -f ".papermill/message.sh" ]] && sh .papermill/message.sh >> $MESSAGE_TMP
+    # generate commit message from local script
+    sh scripts/commit-message.sh >> $MESSAGE_TMP 
+
+} || { # IF NOT EXISTS
+
+    # generate default commit message (followed by 2 linebreaks)
+    echo "autocommit at $(date -u '+%FT%T+00:00') (UTC) by $USER on $HOSTNAME \n\n" >> $MESSAGE_TMP # fake RFC3339 date format as per <stackoverflow.com/questions/11481115/bash-date-format-as-html5-datetime>
+}
 
 echo "[#] Commiting to Git ..."
 echo "    [:] Message:"
