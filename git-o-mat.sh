@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# usage: autogit "/path/to/git/repository/"
+# usage: git-o-mat "/path/to/git/repository/"
 
 GIT_PATH="$1"
 
