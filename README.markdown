@@ -31,7 +31,7 @@ To make it work with a [GitIt Wiki](http://gitit.net) in a Dropbox folder (on a 
     mkdir ~/Dropbox/"$WIKI"
     git clone "$GITIT_PATH"/"$WIKI"/"$DOCS_FOLDER" ~/Dropbox/"$WIKI"
 
-But since the script just does "`git push`" it should work with whatever default remote you defined. (So by not setting a default remote you can disable pushing per repository.
+But since the script just does "`git push`" it should work with whatever default remote you defined. (So by not setting a default remote you can disable pushing per repository).
 
 ## TODO
 
