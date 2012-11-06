@@ -1,6 +1,9 @@
 #!/bin/sh
+# Usage: gt autocommit "/path/to/git/repository/"
+# Summary: Does an autocommit
+# Help: Does an autocommit
+#
 
-# usage: git-o-mat "/path/to/git/repository/"
 
 GIT_PATH="$1"
 
